@@ -9,20 +9,11 @@
 
 ---
 
-## Assignment Overview
 
-This repository provides complete documentation for the Oracle Pluggable Database administration assignment. It showcases hands-on experience with Oracle's multitenant architecture, including creating and managing PDBs, user administration, and monitoring through Oracle Enterprise Manager.
 
 ---
 
-## System Configuration
 
-**Database Platform:**
-- Oracle Database: 21c Express Edition (21.3.0.0.0)
-- Operating System: Microsoft Windows x86 64-bit
-- Container Database: XE
-- Management Tool: Oracle Enterprise Manager Database Express
-- Data Location: C:\APP\MARNISSE\PRODUCT\21C\ORADATA\XE\
 
 ---
 
