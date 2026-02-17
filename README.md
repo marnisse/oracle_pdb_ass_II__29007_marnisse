@@ -5,17 +5,16 @@
 **ID Number:** 29007  
 **Course:** Database Development with PL/SQL (INSY 8311)  
 **Instructor:** Eric Maniraguha  
-**Date:** February 2026
-
----
+**Date:** 16th February 2026
 
 
 
----
 
 
 
----
+
+
+
 
 ## Assignment Tasks
 
@@ -33,80 +32,37 @@
 7. Validated successful user account creation
 
 **SQL Implementation:**
-```sql
--- Establish SYSDBA connection
-CONNECT sys AS SYSDBA;
 
--- Generate pluggable database
-CREATE PLUGGABLE DATABASE ma_pdb_29007
-ADMIN USER pdb_admin IDENTIFIED BY 12345
-CREATE_FILE_DEST = 'C:\APP\MARNISSE\PRODUCT\21C\ORADATA\XE';
 
--- Activate PDB
-ALTER PLUGGABLE DATABASE ma_pdb_29007 OPEN;
 
--- Confirm PDB operational status
-SELECT name, open_mode FROM v$pdbs WHERE name = 'MA_PDB_29007';
 
--- Navigate to PDB context
-ALTER SESSION SET CONTAINER = ma_pdb_29007;
 
--- Establish user account
-CREATE USER marnise_plsqlauca_29007 IDENTIFIED BY 12345;
 
--- Assign privileges
-GRANT CONNECT, RESOURCE, DBA TO marnise_plsqlauca_29007;
 
--- Validate user account
-SELECT username FROM dba_users WHERE username = 'MARNISE_PLSQLAUCA_29007';
-```
+
+
 
 **Documentation:**
-- Evidence: PDB creation execution and confirmation
-- Evidence: PDB operational in READ WRITE mode
-- Evidence: User account successfully created and verified
+-  Temporary PDB creation
+- <img width="544" height="140" alt="task 1 user created verification" src="https://github.com/user-attachments/assets/81206b02-a297-441d-9946-dc7ad293d353" />
 
----
-
-### Task 2: Temporary PDB Lifecycle Management
-
-**Goal:** Demonstrate complete PDB lifecycle by creating and subsequently removing a temporary pluggable database.
-
-**Implementation Steps:**
-1. Returned to container database root context
-2. Generated temporary PDB: `ma_to_delete_pdb_29007`
-3. Validated temporary PDB existence
-4. Executed complete PDB removal including associated data files
-5. Verified successful removal
-
-**SQL Implementation:**
-```sql
--- Return to CDB root context
-ALTER SESSION SET CONTAINER = CDB$ROOT;
-
--- Generate temporary PDB
-CREATE PLUGGABLE DATABASE ma_to_delete_pdb_29007
-ADMIN USER temp_admin IDENTIFIED BY 12345
-CREATE_FILE_DEST = 'C:\APP\MARNISSE\PRODUCT\21C\ORADATA\XE';
-
--- Validate PDB existence
-SELECT name, open_mode FROM v$pdbs WHERE name = 'MA_TO_DELETE_PDB_29007';
-
--- Execute complete removal
-DROP PLUGGABLE DATABASE ma_to_delete_pdb_29007 INCLUDING DATAFILES;
-
--- Verify removal completion
-SELECT name, open_mode FROM v$pdbs WHERE name = 'MA_TO_DELETE_PDB_29007';
--- Expected result: no rows selected
-```
-
-**Documentation:**
-- Evidence: Temporary PDB creation
 - Evidence: PDB existence confirmation
 - Evidence: Successful PDB removal execution
-- Evidence: Removal verification (no rows returned)
+- <img width="514" height="130" alt="Task 2 deletion of temp pdb" src="https://github.com/user-attachments/assets/1cb707d1-97e5-491e-9331-77d5408f0a92" />
 
----
+- Evidence: Removal verification (no rows returned)
+- <img width="514" height="130" alt="Task 2 deletion of temp pdb" src="https://github.com/user-attachments/assets/61bace5d-80f8-468c-b2b8-ae14011c95f3" />
+
+
+- Creation of the user
+- <img width="433" height="46" alt="task1 creating user" src="https://github.com/user-attachments/assets/d91c6b64-c0e9-4af9-bdc3-46d35f2279b0" />
+Creation of PDB
+<img width="518" height="157" alt="task1 pdb creation" src="https://github.com/user-attachments/assets/eb46a804-d051-460b-aa7b-7f28b2d1fbec" />
+
+
+
+
+
 
 ### Task 3: Database Monitoring with Oracle Enterprise Manager
 
@@ -128,27 +84,16 @@ SELECT name, open_mode FROM v$pdbs WHERE name = 'MA_TO_DELETE_PDB_29007';
 
 **Documentation:**
 - Evidence: Complete OEM dashboard screenshot with PDB visualization
+- 
+- <img width="1874" height="830" alt="pdb visualization" src="https://github.com/user-attachments/assets/fb103d08-0fd0-4456-944c-f13bcb3bcdc7" />
+
 
 ---
 
 ### Task 4: Professional Documentation & Repository
 
 **Repository Organization:**
-```
-oracle_pdb_ass_II_29007_marnise/
-├── README.md (current document)
-└── screenshots/
-    ├── task1_pdb_creation.png
-    ├── task1_pdb_open.png
-    ├── task1_user_created.png
-    ├── task2_temp_pdb_created.png
-    ├── task2_temp_pdb_exists.png
-    ├── task2_pdb_deleted.png
-    ├── task2_deletion_confirmed.png
-    └── task3_oem_dashboard.png
-```
 
----
 
 ## Technical Challenges & Resolutions
 
@@ -209,58 +154,23 @@ Complete screenshot documentation demonstrating successful completion of all ass
 - **User Account:** marnise_plsqlauca_29007
 - **Submission Period:** February 2026
 - **Repository URL:** [To be populated upon repository creation]
+- ✅ Final Checklist 
+
+ Correct PDB names used (exact naming conventions followed)
+
+ User created inside the PDB
+
+ Temporary PDB created successfully
+
+ Temporary PDB deleted completely
+
+ OEM dashboard screenshot included
+
+ GitHub repository is set to PUBLIC
+
+ README is clear, short, and professional
+
+ Deadline respected
 
 ---
 
-## Technical Environment
-
-**Oracle Configuration:**
-- Edition: Express Edition (XE)
-- Version: 21.3.0.0.0
-- Data Storage: C:\APP\MARNISSE\PRODUCT\21C\ORADATA\XE\
-- Container Database: XE
-
-**Platform Specifications:**
-- Operating System: Microsoft Windows x86 64-bit
-- Management Interface: Oracle Enterprise Manager Database Express (Port 5500)
-
----
-
-## Reference Materials
-
-- Oracle Database 21c Official Documentation
-- Oracle Multitenant Architecture Administration Guide
-- Oracle Database Administrator's Reference Manual
-- INSY 8311 Course Materials: Database Development with PL/SQL
-- Oracle Enterprise Manager Database Express User Documentation
-
----
-
-## Scope Summary
-
-This assignment validates Oracle Pluggable Database administration capabilities through four practical exercises:
-
-1. **Exercise 1:** Production PDB establishment (`ma_pdb_29007`) with user configuration (`marnise_plsqlauca_29007`)
-
-2. **Exercise 2:** Temporary PDB lifecycle demonstration (`ma_to_delete_pdb_29007`) - complete creation and removal
-
-3. **Exercise 3:** Database monitoring through Oracle Enterprise Manager interface
-
-4. **Exercise 4:** Professional technical documentation publication via GitHub platform
-
-**Core Competencies:** PDB lifecycle administration, user management, Oracle Enterprise Manager utilization, technical documentation standards.
-
----
-
-## Final Notes
-
-This assignment successfully demonstrates essential Oracle Pluggable Database administration competencies, including creation, management, removal, and monitoring using SQL commands and Oracle Enterprise Manager interface.
-
-Naming conventions strictly adhere to assignment specifications:
-- PDB naming format: [FirstTwoLettersOfName]_pdb_[StudentID]
-- User naming format: [FirstName]_plsqlauca_[StudentID]
-- Repository naming format: oracle_pdb_ass_II_[StudentID]_[FirstName]
-
----
-
-**Documentation Complete**
