@@ -153,8 +153,8 @@ Complete screenshot documentation demonstrating successful completion of all ass
 - **Primary PDB:** ma_pdb_29007
 - **User Account:** marnise_plsqlauca_29007
 - **Submission Period:** February 2026
-- **Repository URL:** [To be populated upon repository creation]
-- ✅ Final Checklist 
+- **Repository URL:** https://github.com/marnisse/oracle_pdb_ass_II__29007_marnisse.git
+-  Final Checklist 
 
  Correct PDB names used (exact naming conventions followed)
 
